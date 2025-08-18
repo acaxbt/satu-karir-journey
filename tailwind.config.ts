@@ -52,6 +52,16 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				chat: {
+					user: 'hsl(var(--chat-user))',
+					ai: 'hsl(var(--chat-ai))'
+				},
+				surface: {
+					elevated: 'hsl(var(--surface-elevated))'
+				},
+				text: {
+					secondary: 'hsl(var(--text-secondary))'
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -89,6 +99,10 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			boxShadow: {
+				'soft': '0 2px 8px 0 hsl(var(--shadow-soft))',
+				'medium': '0 4px 16px 0 hsl(var(--shadow-medium))'
 			}
 		}
 	},
