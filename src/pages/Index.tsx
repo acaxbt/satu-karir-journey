@@ -11,7 +11,7 @@ const Index = () => {
   const renderScreen = () => {
     switch (activeScreen) {
       case 'home':
-        return <Homepage />;
+        return <Homepage onNavigateToChat={() => setActiveScreen('chat')} />;
       case 'chat':
         return <ChatScreen />;
       case 'dashboard':
@@ -19,7 +19,7 @@ const Index = () => {
       case 'certification':
         return <CertificationScreen />;
       default:
-        return <Homepage />;
+        return <Homepage onNavigateToChat={() => setActiveScreen('chat')} />;
     }
   };
 

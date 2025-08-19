@@ -3,7 +3,11 @@ import { Send, Target, ChefHat, GraduationCap, Award, Briefcase, Users, Rocket, 
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 
-const Homepage = () => {
+interface HomepageProps {
+  onNavigateToChat: () => void;
+}
+
+const Homepage = ({ onNavigateToChat }: HomepageProps) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const suggestedPrompts = [
@@ -61,11 +65,13 @@ const Homepage = () => {
 
   const handlePromptClick = (promptText: string) => {
     setSearchQuery(promptText);
+    onNavigateToChat();
   };
 
   const handleSearch = () => {
-    console.log("Searching for:", searchQuery);
-    // This would typically navigate to chat screen or handle the search
+    if (searchQuery.trim()) {
+      onNavigateToChat();
+    }
   };
 
   return (
