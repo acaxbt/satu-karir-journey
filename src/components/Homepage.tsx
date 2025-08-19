@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Search, Target, ChefHat, GraduationCap, Award, Briefcase, Users, Rocket, RotateCcw, School, BarChart } from "lucide-react";
+import { Send, Target, ChefHat, GraduationCap, Award, Briefcase, Users, Rocket, RotateCcw, School, BarChart } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const Homepage = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -92,26 +92,26 @@ const Homepage = () => {
             Bangun Kariermu dengan<br />
             <span className="text-primary">Satu Kopilot</span>
           </h1>
-          <p className="text-lg md:text-xl text-text-secondary mb-8">
+          <p className="text-lg md:text-xl text-text-secondary mb-6">
             AI Copilot untuk kerja, pelatihan, dan sertifikasi
           </p>
 
           {/* Chat Input */}
-          <div className="max-w-2xl mx-auto mb-12">
+          <div className="max-w-2xl mx-auto mb-6">
             <div className="relative">
-              <Input
+              <Textarea
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Saya mau jadi chef hotel"
-                className="w-full h-14 text-lg pl-6 pr-16 rounded-xl border-2 border-border focus:border-primary shadow-soft"
-                onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                className="w-full min-h-[80px] text-base pl-4 pr-16 rounded-xl border-2 border-border focus:border-primary shadow-soft resize-none"
+                onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && (e.preventDefault(), handleSearch())}
               />
               <Button
                 onClick={handleSearch}
                 size="icon"
-                className="absolute right-2 top-2 h-10 w-10 rounded-lg"
+                className="absolute right-2 bottom-2 h-10 w-10 rounded-lg"
               >
-                <Search size={18} />
+                <Send size={18} />
               </Button>
             </div>
           </div>
@@ -119,7 +119,7 @@ const Homepage = () => {
 
         {/* Suggested Prompts */}
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-center text-lg font-medium text-foreground mb-6">
+          <h2 className="text-center text-sm font-medium text-text-secondary mb-4">
             Atau pilih salah satu topik berikut:
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -136,10 +136,30 @@ const Homepage = () => {
               </button>
             ))}
           </div>
+
+          {/* Manual Browsing Options */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="h-16 rounded-xl flex items-center gap-3 text-base font-medium"
+            >
+              <Briefcase size={24} />
+              Lihat Lowongan
+            </Button>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="h-16 rounded-xl flex items-center gap-3 text-base font-medium"
+            >
+              <GraduationCap size={24} />
+              Lihat Pelatihan & Sertifikat
+            </Button>
+          </div>
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
+        <div className="text-center mt-12">
           <p className="text-sm text-text-secondary mb-4">
             Mulai perjalanan karier Anda bersama AI assistant terpercaya
           </p>
