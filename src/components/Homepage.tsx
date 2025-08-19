@@ -127,7 +127,7 @@ const Homepage = () => {
               <button
                 key={index}
                 onClick={() => handlePromptClick(prompt.text)}
-                className="flex items-center gap-3 p-4 bg-card border border-border rounded-xl shadow-soft hover:shadow-medium hover:border-primary/20 transition-all duration-200 text-left group"
+                className="flex items-center gap-3 py-2 px-3 hover:bg-accent rounded-lg transition-colors text-left group"
               >
                 <span className="text-lg">{prompt.emoji}</span>
                 <span className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
