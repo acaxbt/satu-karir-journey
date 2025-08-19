@@ -1,16 +1,15 @@
-import { Home, MessageCircle, BarChart3, User } from "lucide-react";
+import { MessageCircle, BarChart3, Award } from "lucide-react";
 
 interface NavigationProps {
-  activeScreen: 'home' | 'chat' | 'dashboard' | 'profile';
-  onScreenChange: (screen: 'home' | 'chat' | 'dashboard' | 'profile') => void;
+  activeScreen: 'chat' | 'dashboard' | 'certification';
+  onScreenChange: (screen: 'chat' | 'dashboard' | 'certification') => void;
 }
 
 const Navigation = ({ activeScreen, onScreenChange }: NavigationProps) => {
   const navItems = [
-    { id: 'home', icon: Home, label: 'Home' },
-    { id: 'chat', icon: MessageCircle, label: 'Satu Kopilot' },
+    { id: 'chat', icon: MessageCircle, label: 'Chat AI' },
     { id: 'dashboard', icon: BarChart3, label: 'Dashboard' },
-    { id: 'profile', icon: User, label: 'Profil' },
+    { id: 'certification', icon: Award, label: 'Sertifikat' },
   ] as const;
 
   return (
